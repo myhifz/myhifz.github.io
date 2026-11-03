@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+    <title>Ta’ahud</title>
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+    </style>
+  <link rel="icon" href="/favicon.ico"/><meta name="description" content="Ta’ahud · Votre programme de révision du Coran, juz’ par juz’." />
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F4F3" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#130D0F" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Ta’ahud" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+<meta name="format-detection" content="telephone=no" />
+<style id="taahud-pwa">
+  html, body {
+    background-color: #F8F4F3;
+    color-scheme: light dark;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  @media (prefers-color-scheme: dark) {
+    html, body { background-color: #130D0F; }
+  }
+  /* Comportement d'application : pas de sélection de texte ni de loupe au toucher long
+     (l'app utilise le toucher long pour cocher une page) */
+  body {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  input, textarea, [contenteditable="true"] {
+    -webkit-user-select: auto;
+    user-select: auto;
+  }
+  /* Écran d'accueil : la barre du bas ne passe pas sous la barre d'accueil de l'iPhone */
+  @media (display-mode: standalone) {
+    #root { padding-bottom: env(safe-area-inset-bottom); }
+  }
+</style>
+</head>
+
+  <body>
+    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <!-- The root element for your Expo app. -->
+    <div id="root"></div>
+  <script src="/_expo/static/js/web/__expo-metro-runtime-97703ae02682710149335928b974f18d.js" defer></script><script src="/_expo/static/js/web/__common-7681a18796d93dcc20fe7f5d4d3b94b0.js" defer></script><script src="/_expo/static/js/web/entry-5c9db226886d7ac21c941cf79192f5aa.js" defer></script>
+<script id="taahud-sw">
+  (function () {
+    if (!('serviceWorker' in navigator)) return;
+    var alreadyControlled = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.register('/sw.js').catch(function () {});
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      // Une nouvelle version prend la main : on recharge une seule fois.
+      // À la première installation, il n'y a rien à faire.
+      if (!alreadyControlled) return;
+      alreadyControlled = false;
+      location.reload();
+    });
+  })();
+</script>
+</body>
+</html>
