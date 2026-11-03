@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Ta’ahud</title>
+    <meta name="theme-color" content="#F8F4F3" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <!-- Adresse inconnue (lien tronqué, ancien lien, écran rechargé) : on ouvre l'application. -->
+    <meta http-equiv="refresh" content="0; url=/" />
+    <script>
+      (function () {
+        var path = location.pathname.replace(/\/+$/, '');
+        // Un écran de l'application (ex. /revision) : on le garde, l'app sait l'ouvrir.
+        var screen = /^\/(bienvenue|lecteur|avance|auth|reglages|mushaf|revision|planning|moi)?(\/.*)?$/.test(path);
+        location.replace((screen ? path : '') + '/' + location.search + location.hash);
+      })();
+    </script>
+    <style>
+      html, body { height: 100%; margin: 0; background: #f8f4f3; color: #5e1528; }
+      body {
+        display: flex; align-items: center; justify-content: center;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+      div { text-align: center; padding: 24px; }
+      h1 { font-size: 20px; margin: 0 0 8px; }
+      p { font-size: 15px; color: #7a6a6e; margin: 0; }
+      a { display: inline-block; margin-top: 18px; color: #9a3347; font-weight: 700; font-size: 15px; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Ta’ahud</h1>
+      <p>Ouverture de votre application…</p>
+      <a href="/">Ouvrir Ta’ahud</a>
+    </div>
+  </body>
+</html>
